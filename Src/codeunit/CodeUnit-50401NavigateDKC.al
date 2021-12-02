@@ -54,7 +54,7 @@ codeunit 50401 "NavigateDKC"
     local procedure OnQueryCompanyPage()
     var
         AllProfile: Record "All Profile";
-        TenantLicenseState: Codeunit "Tenant License State";//
+        TenantLicenseState: Codeunit "Tenant License State";
         UserPersonalization: Record "User Personalization";
         sessionSetting: SessionSettings;
         AnythingUpdated: Boolean;
