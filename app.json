@@ -1,0 +1,53 @@
+{
+  "id": "73996cd5-1239-4326-9ec8-528e5e2b7374",
+  "name": "MISITB",
+  "publisher": "IT Basen ApS",
+  "version": "1.0.0.6",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./res/logo.png",
+  "dependencies": [
+    {
+      "id": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
+      "publisher": "Microsoft",
+      "name": "System Application",
+      "version": "16.0.0.0"
+    },
+    {
+      "id": "437dbf0e-84ff-417a-965d-ed2bb9650972",
+      "publisher": "Microsoft",
+      "name": "Base Application",
+      "version": "16.0.0.0"
+    },
+    
+    {
+      "id": "2887df14-8ad9-4824-b330-e360c2373015",
+      "publisher":"ITBASEN",
+      "name": "inno_test",
+      "version": "1.0.0.11"
+    },
+    {
+      "id": "2887df14-8ad9-4824-b330-e360c2373016",
+      "publisher":"ITB",
+      "name": "inno_Konv_016",
+      "version": "1.0.0.15"
+    }
+
+       
+  ],
+  "screenshots": [],
+  "platform": "16.0.0.0",
+  "idRanges": [
+    {
+      "from": 50400,
+      "to": 50449
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://MISITB.com/help/",
+  "showMyCode": false,
+  "runtime": "5.0"
+}
