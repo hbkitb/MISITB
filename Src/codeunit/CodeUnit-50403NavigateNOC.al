@@ -22,7 +22,7 @@ codeunit 50403 "NavigateNOC"
 
     trigger OnRun()
     begin
-        //Investigate about Paremeter String
+        //Investigate about Paremeter String //
         NavigateCompany();
 
     end;
@@ -36,8 +36,8 @@ codeunit 50403 "NavigateNOC"
         AllowedCompanies: Page "Allowed Companies";
         IsSetupInProgress: Boolean;
     begin
-        if NOT (company.CurrentCompany = 'Innotec N') then begin
-            VarCompany := 'Innotec N';
+        if NOT (company.CurrentCompany = 'Innotec Norge') then begin
+            VarCompany := 'Innotec Norge';
             SetCompanyDisplayName;
 
         end;

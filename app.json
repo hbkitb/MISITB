@@ -2,7 +2,7 @@
   "id": "73996cd5-1239-4326-9ec8-528e5e2b7374",
   "name": "MISITB",
   "publisher": "IT Basen ApS",
-  "version": "1.0.0.6",
+  "version": "1.0.0.7",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -28,13 +28,13 @@
       "id": "2887df14-8ad9-4824-b330-e360c2373015",
       "publisher":"ITBASEN",
       "name": "inno_test",
-      "version": "1.0.0.11"
+      "version": "1.0.0.42"
     },
     {
       "id": "2887df14-8ad9-4824-b330-e360c2373016",
       "publisher":"ITB",
       "name": "inno_Konv_016",
-      "version": "1.0.0.15"
+      "version": "1.0.0.16"
     }
 
        
