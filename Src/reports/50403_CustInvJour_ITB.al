@@ -110,7 +110,7 @@ report 50403 "CustInvJour_ITB"
             }
             column(RestSales; RestSales)
             {
-                //IncludeCaption = true;
+                //IncludeCaption = true;//
             }
             column(RestSalesNI; RestSalesNI)
             {
