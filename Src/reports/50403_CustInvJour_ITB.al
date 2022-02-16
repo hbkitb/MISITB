@@ -154,10 +154,13 @@ report 50403 "CustInvJour_ITB"
                 Clear(SalesInvLine);
                 SalesInvLine.Reset;
                 SalesInvLine.SetRange("Document No.", "Cust. Ledger Entry"."Document No.");
-                if SalesInvLine.FindSet then
-                    if Item.Get(SalesInvLine."No.") then
-                        if Item.Type = item.Type::Inventory then begin
-                            repeat
+                if SalesInvLine.FindSet then begin
+                    repeat
+                        Clear(Item);
+                        Item.SetRange("No.", SalesInvLine."No.");
+                        if Item.FindSet then
+                            if Item.Type = item.Type::Inventory then begin
+
 
                                 if Item.PaySaldo = true then
                                     if (Item.NoInnoItem) then
@@ -176,53 +179,60 @@ report 50403 "CustInvJour_ITB"
                                 if SalesInvLine."Line Amount" - Item.MinPris * SalesInvLine.Quantity < 0 then
                                     AmountBelow := Amountbelow + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount"); //* SalesInvoiceLine.Quantity;
                                 LineNetAmount := LineNetAmount + SalesInvLine."Line Amount";
-                            //NetAmountTotal := NetAmountTotal + LineNetAmount;
-                            //TotalLowSale := TotalLowSale + AmountBelow;
-                            until SalesInvLine.Next = 0;
-                            NetAmountTotal := NetAmountTotal + LineNetAmount;
-                            TotalLowSale := TotalLowSale + AmountBelow;
+                                //NetAmountTotal := NetAmountTotal + LineNetAmount;
+                                //TotalLowSale := TotalLowSale + AmountBelow;
 
-                        end
-                        //end
-                        else begin
-                            //if PostedSalesCreditNote.get("Cust. Ledger Entry"."Document No.") then begin
-                            //    if Customer.Get(PostedSalesCreditNote."Sell-to Customer No.") then begin
-                            //If Item.Get(PostedSalesInvoice."No.") then begin
-                            Clear(SalesCreLine);
-                            SalesCreLine.Reset;
-                            SalesCreLine.SetRange("Document No.", "Cust. Ledger Entry"."Document No.");
-                            if SalesCreLine.FindSet then
-                                if Item.Get(SalesCreLine."No.") then
-                                    if Item.Type = item.Type::Inventory then begin
-                                        repeat
+                                NetAmountTotal := NetAmountTotal + LineNetAmount;
+                                TotalLowSale := TotalLowSale + AmountBelow;
 
-                                            if Item.PaySaldo = true then
-                                                if (Item.NoInnoItem) then
-                                                    MrkSalesNI := MrkSalesNI + SalesCreLine."Line Amount"
-                                                //PaySaldoYes := PaySaldoYes //+ salesinvoiceline."Line Amount"
-                                                else
-                                                    MrkSales := MrkSales + SalesCreLine."Line Amount"
+                            end;
+                    until SalesInvLine.Next = 0;
+                end
+                //end
+                else begin
+                    //if PostedSalesCreditNote.get("Cust. Ledger Entry"."Document No.") then begin
+                    //    if Customer.Get(PostedSalesCreditNote."Sell-to Customer No.") then begin
+                    //If Item.Get(PostedSalesInvoice."No.") then begin
+                    Clear(SalesCreLine);
+                    SalesCreLine.Reset;
+                    SalesCreLine.SetRange("Document No.", "Cust. Ledger Entry"."Document No.");
+                    if SalesCreLine.FindSet then begin
+                        repeat
+                            Clear(Item);
+                            Item.SetRange("No.", SalesCreLine."No.");
+                            if Item.FindSet then
+                                if Item.Type = item.Type::Inventory then begin
 
-                                            else
-                                                if (Item.NoInnoItem) then
-                                                    RestSalesNI := RestSalesNI + SalesCreLine."Line Amount"
-                                                //PaySaldoNo := PaySaldoNo //+ salesinvoiceline."Line Amount"
-                                                else
-                                                    RestSales := RestSales + SalesCreLine."Line Amount";
 
-                                            if SalesCreLine."Line Amount" - Item.MinPris * SalesCreLine.Quantity < 0 then
-                                                AmountBelow := AmountBelow + (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //* SalesInvoiceLine.Quantity;
-                                            LineNetAmount := LineNetAmount + SalesCreLine."Line Amount";
-                                        //NetAmountTotal := NetAmountTotal + LineNetAmount;
-                                        //TotalLowSale := TotalLowSale + AmountBelow;
-                                        until SalesCreLine.Next = 0;
-                                        NetAmountTotal := NetAmountTotal + LineNetAmount;
-                                        TotalLowSale := TotalLowSale + AmountBelow;
+                                    if Item.PaySaldo = true then
+                                        if (Item.NoInnoItem) then
+                                            MrkSalesNI := MrkSalesNI + SalesCreLine."Line Amount"
+                                        //PaySaldoYes := PaySaldoYes //+ salesinvoiceline."Line Amount"
+                                        else
+                                            MrkSales := MrkSales + SalesCreLine."Line Amount"
 
-                                    end;
-                            // end;
-                        end;
+                                    else
+                                        if (Item.NoInnoItem) then
+                                            RestSalesNI := RestSalesNI + SalesCreLine."Line Amount"
+                                        //PaySaldoNo := PaySaldoNo //+ salesinvoiceline."Line Amount"
+                                        else
+                                            RestSales := RestSales + SalesCreLine."Line Amount";
 
+                                    if SalesCreLine."Line Amount" - Item.MinPris * SalesCreLine.Quantity < 0 then
+                                        AmountBelow := AmountBelow + (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //* SalesInvoiceLine.Quantity;
+                                    LineNetAmount := LineNetAmount + SalesCreLine."Line Amount";
+                                    //NetAmountTotal := NetAmountTotal + LineNetAmount;
+                                    //TotalLowSale := TotalLowSale + AmountBelow;
+
+                                    NetAmountTotal := NetAmountTotal + LineNetAmount;
+                                    TotalLowSale := TotalLowSale + AmountBelow;
+
+                                end;
+                        // end;
+                        until SalesCreLine.Next = 0;
+                    end;
+
+                end;
 
 
 
