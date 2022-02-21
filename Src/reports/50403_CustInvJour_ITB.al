@@ -177,13 +177,15 @@ report 50403 "CustInvJour_ITB"
                                         RestSales := RestSales + SalesInvLine."Line Amount";
 
                                 if SalesInvLine."Line Amount" - Item.MinPris * SalesInvLine.Quantity < 0 then
-                                    AmountBelow := Amountbelow + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount"); //* SalesInvoiceLine.Quantity;
+                                    if Item."No." <> 'RABAT' then
+                                        AmountBelow := Amountbelow + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount"); //* SalesInvoiceLine.Quantity;
                                 LineNetAmount := LineNetAmount + SalesInvLine."Line Amount";
                                 //NetAmountTotal := NetAmountTotal + LineNetAmount;
                                 //TotalLowSale := TotalLowSale + AmountBelow;
 
-                                NetAmountTotal := NetAmountTotal + LineNetAmount;
-                                TotalLowSale := TotalLowSale + AmountBelow;
+                                NetAmountTotal := NetAmountTotal + SalesInvLine."Line Amount"; //210222LineNetAmount;
+                                if Item."No." <> 'RABAT' then
+                                    TotalLowSale := TotalLowSale + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount"); //210222 AmountBelow;
 
                             end;
                     until SalesInvLine.Next = 0;
@@ -219,13 +221,15 @@ report 50403 "CustInvJour_ITB"
                                             RestSales := RestSales + SalesCreLine."Line Amount";
 
                                     if SalesCreLine."Line Amount" - Item.MinPris * SalesCreLine.Quantity < 0 then
-                                        AmountBelow := AmountBelow + (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //* SalesInvoiceLine.Quantity;
+                                        if Item."No." <> 'RABAT' then
+                                            AmountBelow := AmountBelow + (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //* SalesInvoiceLine.Quantity;
                                     LineNetAmount := LineNetAmount + SalesCreLine."Line Amount";
                                     //NetAmountTotal := NetAmountTotal + LineNetAmount;
                                     //TotalLowSale := TotalLowSale + AmountBelow;
 
-                                    NetAmountTotal := NetAmountTotal + LineNetAmount;
-                                    TotalLowSale := TotalLowSale + AmountBelow;
+                                    NetAmountTotal := NetAmountTotal + SalesCreLine."Line Amount"; //210222 LineNetAmount;
+                                    if Item."No." <> 'RABAT' then
+                                        TotalLowSale := TotalLowSale + (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //210222 AmountBelow;
 
                                 end;
                         // end;
@@ -319,7 +323,7 @@ report 50403 "CustInvJour_ITB"
         i: Integer;
         PaySaldoYes: Decimal;
         PaySaldoNo: Decimal;
-        SalesStatsCaptionLbl: Label 'Sælgsjournalfor';
+        SalesStatsCaptionLbl: Label 'Salgsstatistik Sælger';
         SalesPersonCaptionLbl: Label 'Sælger';
         CurrReportPageNoCaptionLbl: Label 'Page';
         NoOfRecordsToPrintErrMsg: Label 'The value must be a positive number.';
