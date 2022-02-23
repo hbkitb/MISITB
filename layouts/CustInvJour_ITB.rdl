@@ -11,148 +11,6 @@
       <rd:DataSourceID>6f5c4ac1-03f2-450d-bbd7-1e7f8c0305e2</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="BillToCust">
-          <DataField>BillToCust</DataField>
-        </Field>
-        <Field Name="salespersonCode">
-          <DataField>salespersonCode</DataField>
-        </Field>
-        <Field Name="InvoiceNo">
-          <DataField>InvoiceNo</DataField>
-        </Field>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
-        </Field>
-        <Field Name="SellToCust">
-          <DataField>SellToCust</DataField>
-        </Field>
-        <Field Name="MinPris">
-          <DataField>MinPris</DataField>
-        </Field>
-        <Field Name="MinPrisFormat">
-          <DataField>MinPrisFormat</DataField>
-        </Field>
-        <Field Name="paysaldo">
-          <DataField>paysaldo</DataField>
-        </Field>
-        <Field Name="NoInnoItem">
-          <DataField>NoInnoItem</DataField>
-        </Field>
-        <Field Name="SalesStatisticsCaption">
-          <DataField>SalesStatisticsCaption</DataField>
-        </Field>
-        <Field Name="CurrReportPageNoCaption">
-          <DataField>CurrReportPageNoCaption</DataField>
-        </Field>
-        <Field Name="SalesPersonName">
-          <DataField>SalesPersonName</DataField>
-        </Field>
-        <Field Name="AmountBelow">
-          <DataField>AmountBelow</DataField>
-        </Field>
-        <Field Name="AmountBelowFormat">
-          <DataField>AmountBelowFormat</DataField>
-        </Field>
-        <Field Name="PaySaldoYes">
-          <DataField>PaySaldoYes</DataField>
-        </Field>
-        <Field Name="PaySaldoYesFormat">
-          <DataField>PaySaldoYesFormat</DataField>
-        </Field>
-        <Field Name="PaySaldoNo">
-          <DataField>PaySaldoNo</DataField>
-        </Field>
-        <Field Name="PaySaldoNoFormat">
-          <DataField>PaySaldoNoFormat</DataField>
-        </Field>
-        <Field Name="ItemNoCaptionLbl">
-          <DataField>ItemNoCaptionLbl</DataField>
-        </Field>
-        <Field Name="CustomerNoCaptionLbl">
-          <DataField>CustomerNoCaptionLbl</DataField>
-        </Field>
-        <Field Name="CustomerNameCaptionLbl">
-          <DataField>CustomerNameCaptionLbl</DataField>
-        </Field>
-        <Field Name="InoviceCaptionLbl">
-          <DataField>InoviceCaptionLbl</DataField>
-        </Field>
-        <Field Name="AmountBelowCaptionLbl">
-          <DataField>AmountBelowCaptionLbl</DataField>
-        </Field>
-        <Field Name="TotalCaptionLbl">
-          <DataField>TotalCaptionLbl</DataField>
-        </Field>
-        <Field Name="FooterCaptionLbl">
-          <DataField>FooterCaptionLbl</DataField>
-        </Field>
-        <Field Name="MarkedItemCaptionLbl">
-          <DataField>MarkedItemCaptionLbl</DataField>
-        </Field>
-        <Field Name="OtherItemsCaptionLbl">
-          <DataField>OtherItemsCaptionLbl</DataField>
-        </Field>
-        <Field Name="NetAmountCaptionLbl">
-          <DataField>NetAmountCaptionLbl</DataField>
-        </Field>
-        <Field Name="SalesPersonCaptionLbl">
-          <DataField>SalesPersonCaptionLbl</DataField>
-        </Field>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="MrkSales">
-          <DataField>MrkSales</DataField>
-        </Field>
-        <Field Name="MrkSalesFormat">
-          <DataField>MrkSalesFormat</DataField>
-        </Field>
-        <Field Name="MrkSalesNI">
-          <DataField>MrkSalesNI</DataField>
-        </Field>
-        <Field Name="MrkSalesNIFormat">
-          <DataField>MrkSalesNIFormat</DataField>
-        </Field>
-        <Field Name="RestSales">
-          <DataField>RestSales</DataField>
-        </Field>
-        <Field Name="RestSalesFormat">
-          <DataField>RestSalesFormat</DataField>
-        </Field>
-        <Field Name="RestSalesNI">
-          <DataField>RestSalesNI</DataField>
-        </Field>
-        <Field Name="RestSalesNIFormat">
-          <DataField>RestSalesNIFormat</DataField>
-        </Field>
-        <Field Name="NetAmountTotal">
-          <DataField>NetAmountTotal</DataField>
-        </Field>
-        <Field Name="NetAmountTotalFormat">
-          <DataField>NetAmountTotalFormat</DataField>
-        </Field>
-        <Field Name="LineNetAmount">
-          <DataField>LineNetAmount</DataField>
-        </Field>
-        <Field Name="LineNetAmountFormat">
-          <DataField>LineNetAmountFormat</DataField>
-        </Field>
-        <Field Name="TotalLowSale">
-          <DataField>TotalLowSale</DataField>
-        </Field>
-        <Field Name="TotalLowSaleFormat">
-          <DataField>TotalLowSaleFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -402,7 +260,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -618,7 +475,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -1184,7 +1043,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!FooterCaptionLbl.Value, "DataSet_Result")</Value>
+                                  <Value EvaluationMode="Constant" />
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -1252,7 +1111,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox51</rd:DefaultName>
@@ -1282,7 +1143,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox52</rd:DefaultName>
@@ -1312,7 +1175,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox53</rd:DefaultName>
@@ -1449,7 +1314,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -1481,7 +1348,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox20</rd:DefaultName>
@@ -1648,7 +1517,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox35</rd:DefaultName>
@@ -1680,7 +1551,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox36</rd:DefaultName>
@@ -2091,7 +1964,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -2103,6 +1978,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2153,7 +2029,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox43</rd:DefaultName>
@@ -2213,6 +2091,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <KeepTogether>true</KeepTogether>
             <Top>1.45909cm</Top>
             <Left>0.03607cm</Left>
             <Height>5.4cm</Height>
@@ -2495,4 +2374,146 @@ End Function</Code>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>b0b59414-8f75-4e25-a7c8-b230383b57c8</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="BillToCust">
+          <DataField>BillToCust</DataField>
+        </Field>
+        <Field Name="salespersonCode">
+          <DataField>salespersonCode</DataField>
+        </Field>
+        <Field Name="InvoiceNo">
+          <DataField>InvoiceNo</DataField>
+        </Field>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+        </Field>
+        <Field Name="SellToCust">
+          <DataField>SellToCust</DataField>
+        </Field>
+        <Field Name="MinPris">
+          <DataField>MinPris</DataField>
+        </Field>
+        <Field Name="MinPrisFormat">
+          <DataField>MinPrisFormat</DataField>
+        </Field>
+        <Field Name="paysaldo">
+          <DataField>paysaldo</DataField>
+        </Field>
+        <Field Name="NoInnoItem">
+          <DataField>NoInnoItem</DataField>
+        </Field>
+        <Field Name="SalesStatisticsCaption">
+          <DataField>SalesStatisticsCaption</DataField>
+        </Field>
+        <Field Name="CurrReportPageNoCaption">
+          <DataField>CurrReportPageNoCaption</DataField>
+        </Field>
+        <Field Name="SalesPersonName">
+          <DataField>SalesPersonName</DataField>
+        </Field>
+        <Field Name="AmountBelow">
+          <DataField>AmountBelow</DataField>
+        </Field>
+        <Field Name="AmountBelowFormat">
+          <DataField>AmountBelowFormat</DataField>
+        </Field>
+        <Field Name="PaySaldoYes">
+          <DataField>PaySaldoYes</DataField>
+        </Field>
+        <Field Name="PaySaldoYesFormat">
+          <DataField>PaySaldoYesFormat</DataField>
+        </Field>
+        <Field Name="PaySaldoNo">
+          <DataField>PaySaldoNo</DataField>
+        </Field>
+        <Field Name="PaySaldoNoFormat">
+          <DataField>PaySaldoNoFormat</DataField>
+        </Field>
+        <Field Name="ItemNoCaptionLbl">
+          <DataField>ItemNoCaptionLbl</DataField>
+        </Field>
+        <Field Name="CustomerNoCaptionLbl">
+          <DataField>CustomerNoCaptionLbl</DataField>
+        </Field>
+        <Field Name="CustomerNameCaptionLbl">
+          <DataField>CustomerNameCaptionLbl</DataField>
+        </Field>
+        <Field Name="InoviceCaptionLbl">
+          <DataField>InoviceCaptionLbl</DataField>
+        </Field>
+        <Field Name="AmountBelowCaptionLbl">
+          <DataField>AmountBelowCaptionLbl</DataField>
+        </Field>
+        <Field Name="TotalCaptionLbl">
+          <DataField>TotalCaptionLbl</DataField>
+        </Field>
+        <Field Name="FooterCaptionLbl">
+          <DataField>FooterCaptionLbl</DataField>
+        </Field>
+        <Field Name="MarkedItemCaptionLbl">
+          <DataField>MarkedItemCaptionLbl</DataField>
+        </Field>
+        <Field Name="OtherItemsCaptionLbl">
+          <DataField>OtherItemsCaptionLbl</DataField>
+        </Field>
+        <Field Name="NetAmountCaptionLbl">
+          <DataField>NetAmountCaptionLbl</DataField>
+        </Field>
+        <Field Name="SalesPersonCaptionLbl">
+          <DataField>SalesPersonCaptionLbl</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="MrkSales">
+          <DataField>MrkSales</DataField>
+        </Field>
+        <Field Name="MrkSalesFormat">
+          <DataField>MrkSalesFormat</DataField>
+        </Field>
+        <Field Name="MrkSalesNI">
+          <DataField>MrkSalesNI</DataField>
+        </Field>
+        <Field Name="MrkSalesNIFormat">
+          <DataField>MrkSalesNIFormat</DataField>
+        </Field>
+        <Field Name="RestSales">
+          <DataField>RestSales</DataField>
+        </Field>
+        <Field Name="RestSalesFormat">
+          <DataField>RestSalesFormat</DataField>
+        </Field>
+        <Field Name="RestSalesNI">
+          <DataField>RestSalesNI</DataField>
+        </Field>
+        <Field Name="RestSalesNIFormat">
+          <DataField>RestSalesNIFormat</DataField>
+        </Field>
+        <Field Name="NetAmountTotal">
+          <DataField>NetAmountTotal</DataField>
+        </Field>
+        <Field Name="NetAmountTotalFormat">
+          <DataField>NetAmountTotalFormat</DataField>
+        </Field>
+        <Field Name="LineNetAmount">
+          <DataField>LineNetAmount</DataField>
+        </Field>
+        <Field Name="LineNetAmountFormat">
+          <DataField>LineNetAmountFormat</DataField>
+        </Field>
+        <Field Name="TotalLowSale">
+          <DataField>TotalLowSale</DataField>
+        </Field>
+        <Field Name="TotalLowSaleFormat">
+          <DataField>TotalLowSaleFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

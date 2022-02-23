@@ -251,8 +251,8 @@ report 50403 "CustInvJour_ITB"
 
             trigger OnPreDataItem()
             begin
-                i := 0;
-                PostedSalesInvoice.DeleteAll();
+                //210218 i := 0;
+                //210218 PostedSalesInvoice.DeleteAll();
             end;
         }
 
@@ -293,8 +293,8 @@ report 50403 "CustInvJour_ITB"
 
         trigger OnOpenPage()
         begin
-            if NoOfRecordsToPrint = 0 then
-                NoOfRecordsToPrint := 10;
+            //210222 if NoOfRecordsToPrint = 0 then
+            //210222 NoOfRecordsToPrint := 50;
         end;
     }
 
