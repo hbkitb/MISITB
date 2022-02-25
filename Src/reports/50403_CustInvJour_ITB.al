@@ -128,6 +128,10 @@ report 50403 "CustInvJour_ITB"
             {
                 //IncludeCaption = true;
             }
+            column(TotalRabat; TotalRabat)
+            {
+                //IncludeCaption = true;
+            }
 
 
 
@@ -185,7 +189,9 @@ report 50403 "CustInvJour_ITB"
 
                                 NetAmountTotal := NetAmountTotal + SalesInvLine."Line Amount"; //210222LineNetAmount;
                                 if Item."No." <> 'RABAT' then
-                                    TotalLowSale := TotalLowSale + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount"); //210222 AmountBelow;
+                                    TotalLowSale := TotalLowSale + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount") //210222 AmountBelow;
+                                else
+                                    TotalRabat := TotalRabat + SalesInvLine."Line Amount";
 
                             end;
                     until SalesInvLine.Next = 0;
@@ -208,28 +214,30 @@ report 50403 "CustInvJour_ITB"
 
                                     if Item.PaySaldo = true then
                                         if (Item.NoInnoItem) then
-                                            MrkSalesNI := MrkSalesNI + SalesCreLine."Line Amount"
+                                            MrkSalesNI := MrkSalesNI - SalesCreLine."Line Amount"
                                         //PaySaldoYes := PaySaldoYes //+ salesinvoiceline."Line Amount"
                                         else
-                                            MrkSales := MrkSales + SalesCreLine."Line Amount"
+                                            MrkSales := MrkSales - SalesCreLine."Line Amount"
 
                                     else
                                         if (Item.NoInnoItem) then
-                                            RestSalesNI := RestSalesNI + SalesCreLine."Line Amount"
+                                            RestSalesNI := RestSalesNI - SalesCreLine."Line Amount"
                                         //PaySaldoNo := PaySaldoNo //+ salesinvoiceline."Line Amount"
                                         else
-                                            RestSales := RestSales + SalesCreLine."Line Amount";
+                                            RestSales := RestSales - SalesCreLine."Line Amount";
 
                                     if SalesCreLine."Line Amount" - Item.MinPris * SalesCreLine.Quantity < 0 then
                                         if Item."No." <> 'RABAT' then
-                                            AmountBelow := AmountBelow + (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //* SalesInvoiceLine.Quantity;
-                                    LineNetAmount := LineNetAmount + SalesCreLine."Line Amount";
+                                            AmountBelow := AmountBelow - (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //* SalesInvoiceLine.Quantity;
+                                    LineNetAmount := LineNetAmount - SalesCreLine."Line Amount";
                                     //NetAmountTotal := NetAmountTotal + LineNetAmount;
                                     //TotalLowSale := TotalLowSale + AmountBelow;
 
-                                    NetAmountTotal := NetAmountTotal + SalesCreLine."Line Amount"; //210222 LineNetAmount;
+                                    NetAmountTotal := NetAmountTotal - SalesCreLine."Line Amount"; //210222 LineNetAmount;
                                     if Item."No." <> 'RABAT' then
-                                        TotalLowSale := TotalLowSale + (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //210222 AmountBelow;
+                                        TotalLowSale := TotalLowSale - (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount") //210222 AmountBelow;
+                                    else
+                                        TotalRabat := TotalRabat - SalesCreLine."Line Amount";
 
                                 end;
                         // end;
@@ -347,6 +355,7 @@ report 50403 "CustInvJour_ITB"
         NetAmountTotal: Decimal;
         LineNetAmount: Decimal;
         TotalLowSale: Decimal;
+        TotalRabat: Decimal;
         CustName: Text[100];
 
     /*
