@@ -188,8 +188,10 @@ report 50403 "CustInvJour_ITB"
                                 //TotalLowSale := TotalLowSale + AmountBelow;
 
                                 NetAmountTotal := NetAmountTotal + SalesInvLine."Line Amount"; //210222LineNetAmount;
-                                if Item."No." <> 'RABAT' then
-                                    TotalLowSale := TotalLowSale + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount") //210222 AmountBelow;
+                                if Item."No." <> 'RABAT' then begin
+                                    if SalesInvLine."Line Amount" - Item.MinPris * SalesInvLine.Quantity < 0 then
+                                        TotalLowSale := TotalLowSale + (Item.MinPris * SalesInvLine.Quantity - SalesInvLine."Line Amount"); //210222 AmountBelow;
+                                end
                                 else
                                     TotalRabat := TotalRabat + SalesInvLine."Line Amount";
 
@@ -231,11 +233,13 @@ report 50403 "CustInvJour_ITB"
                                             AmountBelow := AmountBelow - (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //* SalesInvoiceLine.Quantity;
                                     LineNetAmount := LineNetAmount - SalesCreLine."Line Amount";
                                     //NetAmountTotal := NetAmountTotal + LineNetAmount;
-                                    //TotalLowSale := TotalLowSale + AmountBelow;
+                                    //TotalLowSale := TotalLowSale + AmountBelow;//
 
                                     NetAmountTotal := NetAmountTotal - SalesCreLine."Line Amount"; //210222 LineNetAmount;
-                                    if Item."No." <> 'RABAT' then
-                                        TotalLowSale := TotalLowSale - (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount") //210222 AmountBelow;
+                                    if Item."No." <> 'RABAT' then begin
+                                        if SalesCreLine."Line Amount" - Item.MinPris * SalesCreLine.Quantity < 0 then
+                                            TotalLowSale := TotalLowSale - (Item.MinPris * SalesCreLine.Quantity - SalesCreLine."Line Amount"); //210222 AmountBelow;
+                                    end
                                     else
                                         TotalRabat := TotalRabat - SalesCreLine."Line Amount";
 
