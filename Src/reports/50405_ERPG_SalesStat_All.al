@@ -18,7 +18,7 @@ report 50405 "ERPGSalesSattAll"
 
             dataitem("Integer"; "Integer")
             {
-                ////DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
+                //DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
                 DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
                 column(SortingPostingDateFilter; StrSubstNo(Text001, ItemDateFilter))
                 {
